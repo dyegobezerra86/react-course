@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao React</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <main id="container"></main>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function Login() {
+            return (
+                <div id="logins">
+                    <input tipe="text"></input>
+                    <input type="password" name="" id=""></input>
+                    <input type="checkbox" name="" id="">Mostrar Senha</input>
+                    <button>Entrar</button>
+                    <p>Esqueceu a senha? Recupere <a href="">aqui.</a></p>
+                    <p>Não possui cadastro? Cadastre-se <a href="http://">aqui.</a></p>
+                </div>
+            )
+        }
+
+        const App = (
+            <>
+                <Login/>
+            </>
+            
+        )
+
+        const container = document.querySelector('#container');
+        const root = ReactDOM.createRoot(container);
+        root.render(App);
+
+    </script>
+</body>
+</html>
