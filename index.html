@@ -19,65 +19,76 @@
 
     <script type="text/babel">
 
-        function Input({ placeholder }) {
-            return <input type="text" placeholder={placeholder} />
-        };
+        // // function Title() {
+        // //     return <h1>Hello React!</h1>
+        // // };
 
-        function Inputs() {
+        // // function Paragraph() {
+        // //     return <p>Welcome to complete React course!</p>
+
+        // };
+
+        function ChatInput() {
             return (
-                <div className="inputs">
-                    <Input placeholder="Usuário" />
-                    <Input placeholder="Senha" />
+            <div>
+
+                <input type="text" placeholder='Send a message to Chatbot'/>
+                <button>Send</button>
+                
+            </div>
+            );
+        }
+
+        function ChatMessage({message, sender}) {
+
+            // if (sender === "robot") {
+                
+            //     return (
+            //         <div>
+            //         {message}
+            //         <img src="./assets/robot.png" width= "50" alt=""/>
+            //     </div>
+            //     )
+                
+            // }
+            
+            return (
+                <div>
+                    {sender === 'robot' && <img src="./assets/robot.png" width= "50" alt=""/>}
+                    {message}
+                    {sender === 'user' && <img src="./assets/user.png" width= "50" alt=""/>}
                 </div>
             );
-        };
+        }
 
-        function Show() {
+        // function ChatMessage() {
+        //     return 
+        // }
+        
+        function App() {
             return (
-                <div className="show">
-                    <input type="checkbox" />
-                    <label>Mostrar Senha</label>
-                </div>
-            );
+                // <>
+                //     <Title />
+                //     <Paragraph />
+                // </>
+            <>
+                <ChatInput/> 
+                <ChatMessage message="Hello!" sender="user"/>
+                <ChatMessage message="Hello! How can I help you?" sender="robot"/>
+                <ChatMessage message="Get date today!" sender="user"/>
+                <ChatMessage message="Today is September 25?" sender="robot"/>
+            </>
+            )
         };
-
-        function Button() {
-            return <button type="button">Entrar</button>;
-        };
-
-        function Small({ children }) {
-            return <small>{children}</small>;
-        };
-
-        function Smalls() {
-            return (
-                <div className="smalls">
-                    <Small>Esqueceu a senha? Recupere <a href="#">aqui</a>.</Small>
-                    <Small>Não possui cadastro? Cadastre-se <a href="#">aqui</a>.</Small>
-                </div>
-            );
-        };
-
-        function Form() {
-            return (
-                <form>
-                    <Inputs />
-                    <Show />
-                    <Button />
-                    <Smalls />
-                </form>
-            );
-        };
-
-        const App = (
-            <Form />
-        );
 
         const container = document.querySelector('#container');
         const root = ReactDOM.createRoot(container);
-        root.render(App);
+        root.render(<App />);
 
     </script>
+
+
+
 </body>
 
 </html>
